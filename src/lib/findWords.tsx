@@ -38,10 +38,8 @@ export function getRegex(pattern: string){
        if(captureGroups[char] === undefined){
          // new capture group
          const allExistingCaptureGroups = Object.values(captureGroups).map(g => `\\${g}`);
-         const nextCaptureGroup = allExistingCaptureGroups.length + 1;
 
-
-         captureGroups[char] = nextCaptureGroup;
+         captureGroups[char] = allExistingCaptureGroups.length + 1;
 
          const exclude = [...allExistingCaptureGroups, ...excludedLetters];
          if(exclude.length > 0){
